@@ -1,0 +1,48 @@
+spring:
+  app:
+    jwtSecret: mySecretKey123912738aopsgjnspkmndfsopkvajoirjg94gf2opfng2moknm
+    jwtExpirationMs: 3000000  # 50 minutes (in milliseconds)
+  application:
+    name: wypozyczalnia-nowa
+  datasource:
+    url: jdbc:mysql://localhost:3306/wypozyczalnia2
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate  # This will validate the schema
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true  # SQL queries will be formatted in the logs
+        show-sql: true  # Show the SQL queries being executed
+        use_sql_comments: true  # Add comments to the generated SQL queries
+  mail:
+    host: smtp-relay.brevo.com
+    port: 587
+    username: 7e723a001@smtp-brevo.com
+    password: 67yXStmOFx5UvGbM
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            enable: false
+
+logging:
+  level:
+    org:
+      springframework: DEBUG  # Enable DEBUG level logging for Spring framework
+      security: DEBUG  # Enable DEBUG level logging for Spring Security
+    hibernate:
+      SQL: trace  # Enable DEBUG level logging for Hibernate SQL queries
+      type: TRACE  # Enable TRACE level logging for Hibernate type bindings
+    com:
+      example:
+        wypozyczalnia: DEBUG  # Enable DEBUG level logging for your application's package
+
+
+
